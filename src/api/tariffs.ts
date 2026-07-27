@@ -37,6 +37,7 @@ export interface TariffListItem {
   daily_price_kopeks: number;
   traffic_limit_gb: number;
   device_limit: number;
+  traffic_per_device_gb?: number;
   tier_level: number;
   display_order: number;
   servers_count: number;
@@ -60,6 +61,7 @@ export interface TariffDetail {
   device_limit: number;
   device_price_kopeks: number | null;
   max_device_limit: number | null;
+  traffic_per_device_gb?: number;
   tier_level: number;
   display_order: number;
   period_prices: PeriodPrice[];
@@ -102,6 +104,7 @@ export interface TariffCreateRequest {
   device_limit?: number;
   device_price_kopeks?: number;
   max_device_limit?: number;
+  traffic_per_device_gb?: number;
   tier_level?: number;
   period_prices?: PeriodPrice[];
   allowed_squads?: string[];
@@ -145,6 +148,7 @@ export interface TariffUpdateRequest {
   device_limit?: number;
   device_price_kopeks?: number;
   max_device_limit?: number;
+  traffic_per_device_gb?: number;
   tier_level?: number;
   display_order?: number;
   period_prices?: PeriodPrice[];
