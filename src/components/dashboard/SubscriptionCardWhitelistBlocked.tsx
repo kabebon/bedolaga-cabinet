@@ -82,7 +82,7 @@ export default function SubscriptionCardWhitelistBlocked({
               className="font-mono text-[11px] font-semibold uppercase tracking-widest"
               style={{ color: 'rgb(var(--color-warning-400))' }}
             >
-              {t('dashboard.whitelistExhausted', 'Премиум отключён')}
+              {t('dashboard.whitelistExhausted', 'Белые списки исчерпаны')}
             </span>
             {subscription.is_trial && (
               <span className="inline-flex items-center gap-1 rounded-md border border-accent-400/25 bg-accent-400/10 px-2 py-0.5 font-mono text-[9px] font-bold uppercase tracking-widest text-accent-400">
@@ -116,7 +116,7 @@ export default function SubscriptionCardWhitelistBlocked({
             </span>
           </div>
           <div className="mb-1 text-[11px] font-medium text-dark-50/50">
-            {t('dashboard.premiumDisabled', 'Отключены')}
+            {t('dashboard.premiumDisabled', 'Исчерпаны')}
           </div>
           <div className="font-mono text-[11px] text-dark-50/40">
             {formatTraffic(premiumUsedGb)} / {formatTraffic(premiumLimitGb)}
@@ -170,7 +170,7 @@ export default function SubscriptionCardWhitelistBlocked({
       >
         {t(
           'subscription.whitelistBlockedDescription',
-          'Лимит премиум-трафика исчерпан. Работают обычные сервера. Докупите трафик, чтобы вернуть премиум.',
+          'Трафик по белым спискам исчерпан. Докупите трафик, чтобы вернуть белый список. Обычные сервера доступны.',
         )}
       </div>
 
@@ -235,7 +235,7 @@ export default function SubscriptionCardWhitelistBlocked({
         style={{ background: 'rgb(var(--color-accent-400))' }}
       >
         <PlusIcon className="h-4 w-4" />
-        {t('subscription.buyPremiumTraffic', 'Докупить премиум-трафик')}
+        {t('subscription.buyPremiumTraffic', 'Докупить трафик для белых списков')}
       </button>
 
       {/* ─── Stats row: Tariff + Days Left ─── */}

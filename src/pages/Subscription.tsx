@@ -806,12 +806,15 @@ export default function Subscription() {
                         className="text-sm font-semibold"
                         style={{ color: 'rgb(var(--color-urgent-400))' }}
                       >
-                        {t('subscription.whitelistBlockedTitle', 'Премиум-серверы отключены')}
+                        {t(
+                          'subscription.whitelistBlockedTitle',
+                          'Трафик по белым спискам исчерпан',
+                        )}
                       </p>
                       <p className="mt-1 text-xs text-dark-400">
                         {t(
                           'subscription.whitelistBlockedDescription',
-                          'Лимит премиум-трафика исчерпан. Работают обычные сервера. Докупите трафик, чтобы вернуть премиум.',
+                          'Трафик по белым спискам исчерпан. Докупите трафик, чтобы вернуть белый список. Обычные сервера доступны.',
                         )}
                       </p>
                     </div>
