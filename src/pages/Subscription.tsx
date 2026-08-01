@@ -233,6 +233,7 @@ export default function Subscription() {
     traffic_used_gb: number;
     traffic_used_percent: number;
     is_unlimited: boolean;
+    whitelist_blocked?: boolean;
   } | null>(null);
 
   // Detect multi-tariff mode from cached subscriptions-list
@@ -628,8 +629,12 @@ export default function Subscription() {
       {subscription ? (
         (() => {
           const usedGb = trafficData?.traffic_used_gb ?? subscription.traffic_used_gb;
+          // whitelist_blocked переопределяет безлимит: премиум исчерпан, лимит тарифа > 0
+          const isWhitelistBlocked =
+            (trafficData?.whitelist_blocked ?? false) || (subscription.whitelist_blocked ?? false);
           const isUnlimited =
-            (trafficData?.is_unlimited ?? false) || subscription.traffic_limit_gb === 0;
+            !isWhitelistBlocked &&
+            ((trafficData?.is_unlimited ?? false) || subscription.traffic_limit_gb === 0);
           const connectedDevices = devicesData?.total ?? 0;
           const isAtDeviceLimit =
             subscription.device_limit > 0 && connectedDevices >= subscription.device_limit;
@@ -759,6 +764,55 @@ export default function Subscription() {
                       </p>
                       <p className="mt-1 text-xs text-dark-400">
                         {t('subscription.trafficLimitedDescription')}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ─── Whitelist Blocked Banner (премиум исчерпан) ─── */}
+              {isWhitelistBlocked && (
+                <div
+                  className="mb-6 rounded-[14px] p-4"
+                  style={{
+                    background:
+                      'linear-gradient(135deg, rgba(255,184,0,0.08), rgba(255,184,0,0.03))',
+                    border: '1px solid rgba(255,184,0,0.2)',
+                  }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div
+                      className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-[10px]"
+                      style={{ background: 'rgba(255,184,0,0.12)' }}
+                    >
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="rgb(var(--color-urgent-400))"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        aria-hidden="true"
+                      >
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                      </svg>
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p
+                        className="text-sm font-semibold"
+                        style={{ color: 'rgb(var(--color-urgent-400))' }}
+                      >
+                        {t('subscription.whitelistBlockedTitle', 'Премиум-серверы отключены')}
+                      </p>
+                      <p className="mt-1 text-xs text-dark-400">
+                        {t(
+                          'subscription.whitelistBlockedDescription',
+                          'Лимит премиум-трафика исчерпан. Работают обычные сервера. Докупите трафик, чтобы вернуть премиум.',
+                        )}
                       </p>
                     </div>
                   </div>

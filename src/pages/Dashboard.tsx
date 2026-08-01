@@ -14,6 +14,7 @@ import PromoOffersSection from '../components/PromoOffersSection';
 import NewsSection from '../components/news/NewsSection';
 import SubscriptionCardActive from '../components/dashboard/SubscriptionCardActive';
 import SubscriptionCardExpired from '../components/dashboard/SubscriptionCardExpired';
+import SubscriptionCardWhitelistBlocked from '../components/dashboard/SubscriptionCardWhitelistBlocked';
 import TrialOfferCard from '../components/dashboard/TrialOfferCard';
 import StatsGrid from '../components/dashboard/StatsGrid';
 import { giftApi } from '../api/gift';
@@ -127,6 +128,7 @@ export default function Dashboard() {
     traffic_used_gb: number;
     traffic_used_percent: number;
     is_unlimited: boolean;
+    whitelist_blocked?: boolean;
   } | null>(null);
 
   const refreshTrafficMutation = useMutation({
@@ -351,6 +353,13 @@ export default function Dashboard() {
             subscription={subscription}
             balanceKopeks={balanceData?.balance_kopeks ?? 0}
             balanceRubles={balanceData?.balance_rubles ?? 0}
+          />
+        ) : subscription?.whitelist_blocked ? (
+          <SubscriptionCardWhitelistBlocked
+            subscription={subscription}
+            refreshTrafficMutation={refreshTrafficMutation}
+            trafficRefreshCooldown={trafficRefreshCooldown}
+            connectedDevices={devicesData?.total ?? 0}
           />
         ) : subscription ? (
           <SubscriptionCardActive

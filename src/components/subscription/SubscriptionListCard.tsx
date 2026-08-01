@@ -90,7 +90,9 @@ export default function SubscriptionListCard({
   const isExpired = subscription.status === 'expired' || subscription.status === 'disabled';
   const trafficLimit = subscription.traffic_limit_gb;
   const trafficUsed = subscription.traffic_used_gb;
-  const isUnlimited = trafficLimit === 0;
+  // whitelist_blocked переопределяет безлимит: премиум исчерпан, но лимит тарифа > 0
+  const isWhitelistBlocked = subscription.whitelist_blocked === true;
+  const isUnlimited = !isWhitelistBlocked && trafficLimit === 0;
   const trafficPercent = isUnlimited
     ? 0
     : trafficLimit > 0
@@ -145,7 +147,9 @@ export default function SubscriptionListCard({
         <div className="mt-3">
           <div className="mb-1 flex items-baseline justify-between">
             <span className="text-[11px] font-medium" style={{ color: g.textSecondary }}>
-              {t('subscription.traffic', 'Трафик')}
+              {isWhitelistBlocked
+                ? t('dashboard.whitelistExhausted', 'Премиум отключён')
+                : t('subscription.traffic', 'Трафик')}
             </span>
             <span className="text-[11px] tabular-nums" style={{ color: g.textSecondary }}>
               {isUnlimited

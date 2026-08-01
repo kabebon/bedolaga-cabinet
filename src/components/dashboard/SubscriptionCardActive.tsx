@@ -21,6 +21,7 @@ interface SubscriptionCardActiveProps {
     traffic_used_gb: number;
     traffic_used_percent: number;
     is_unlimited: boolean;
+    whitelist_blocked?: boolean;
   } | null;
   refreshTrafficMutation: UseMutationResult<unknown, unknown, void, unknown>;
   trafficRefreshCooldown: number;

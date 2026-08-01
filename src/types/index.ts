@@ -92,6 +92,9 @@ export interface Subscription {
   is_active: boolean;
   is_expired: boolean;
   is_limited: boolean;
+  // Whitelist (премиум-серверы) исчерпан — traffic-limiter снял whitelist squad.
+  // Подписка остаётся активной на basic-серверах; чисто дисплеевый признак.
+  whitelist_blocked?: boolean;
   traffic_purchases?: TrafficPurchase[];
   // Daily tariff fields
   is_daily?: boolean;
@@ -123,6 +126,8 @@ export interface SubscriptionListItem {
   subscription_url: string | null;
   subscription_crypto_link: string | null;
   is_trial: boolean;
+  // Whitelist (премиум-серверы) исчерпан — traffic-limiter снял whitelist squad.
+  whitelist_blocked?: boolean;
   is_daily?: boolean;
   is_daily_paused?: boolean;
   autopay_enabled: boolean;

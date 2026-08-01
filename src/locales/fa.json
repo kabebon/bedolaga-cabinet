@@ -304,6 +304,11 @@
       "paidTitle": "دوره آزمایشی پرداختی"
     },
     "unlimited": "نامحدود",
+    "whitelistExhausted": "پرمیوم غیرفعال شد",
+    "premiumZone": "پرمیوم",
+    "basicZone": "معمولی",
+    "premiumDisabled": "غیرفعال",
+    "basicActive": "فعال",
     "usageLast14Days": "مصرف ۱۴ روز اخیر",
     "usedSuffix": "مصرف شده",
     "validUntil": "معتبر تا {{date}}"
@@ -319,6 +324,9 @@
     "trafficLimited": "ترافیک تمام شده",
     "trafficLimitedTitle": "محدودیت ترافیک",
     "trafficLimitedDescription": "ترافیک شما تمام شده است. برای ادامه استفاده از VPN، ترافیک اضافی خریداری کنید.",
+    "whitelistBlockedTitle": "سرورهای پرمیوم غیرفعال شدند",
+    "whitelistBlockedDescription": "ترافیک پرمیوم تمام شده است. سرورهای معمولی همچنان فعال هستند. برای بازیابی پرمیوم ترافیک خریداری کنید.",
+    "buyPremiumTraffic": "خرید ترافیک پرمیوم",
     "expiresAt": "تاریخ انقضا",
     "daysLeft": "روز باقی‌مانده",
     "devices": "دستگاه‌ها",

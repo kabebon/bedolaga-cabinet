@@ -158,6 +158,7 @@ export const subscriptionApi = {
     traffic_limit_gb: number;
     traffic_used_percent: number;
     is_unlimited: boolean;
+    whitelist_blocked?: boolean;
     lifetime_used_bytes?: number;
     lifetime_used_gb?: number;
   }> => {
