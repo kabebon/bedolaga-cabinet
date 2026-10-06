@@ -11,6 +11,7 @@ import { useCloseOnSuccessNotification } from '../store/successNotification';
 import { SwitchTariffSheet } from '../components/subscription/sheets/SwitchTariffSheet';
 import { TariffPurchaseForm } from '../components/subscription/purchase/TariffPurchaseForm';
 import { needsTariff } from '../utils/legacySubscription';
+import { TariffComparisonTable } from '../components/tariffs/TariffComparisonTable';
 import { TariffPickerGrid } from '../components/subscription/purchase/TariffPickerGrid';
 import { TariffPickerLite } from '../components/subscription/purchase/TariffPickerLite';
 import { useLiteMode } from '../hooks/useLiteMode';
@@ -277,6 +278,8 @@ export default function SubscriptionPurchase() {
           />
 
           {!showTariffPurchase ? (
+            <>
+            <TariffComparisonTable tariffIds={tariffs.map((tariff) => tariff.id)} />
             <TariffPicker
               tariffs={tariffs}
               subscription={subscription}
@@ -289,6 +292,7 @@ export default function SubscriptionPurchase() {
               }}
               onSwitchTariff={(tariffId) => setSwitchTariffId(tariffId)}
             />
+            </>
           ) : (
             selectedTariff && (
               /* Tariff Purchase Form (extracted into its own component) */

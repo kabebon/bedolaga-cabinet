@@ -7,6 +7,7 @@ import { fireAnalyticsEvent, getYandexCid } from '../hooks/useAnalyticsCounters'
 import { motion, AnimatePresence } from 'framer-motion';
 import DOMPurify from 'dompurify';
 import { landingApi } from '../api/landings';
+import { TariffComparisonTable } from '../components/tariffs/TariffComparisonTable';
 import { pickBestValue } from '../utils/bestValue';
 import { BestValueBadge, bestValueFrame } from '../components/subscription/BestValueBadge';
 import type {
@@ -1186,6 +1187,7 @@ export default function QuickPurchase() {
             {/* Tariff cards */}
             {showTariffCards && (
               <div>
+                <TariffComparisonTable tariffIds={visibleTariffs.map((tariff) => tariff.id)} />
                 <h2 className="mb-3 text-sm font-medium uppercase tracking-wider text-dark-400">
                   {t('landing.chooseTariff', 'Choose tariff')}
                 </h2>

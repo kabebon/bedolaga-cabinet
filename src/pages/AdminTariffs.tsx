@@ -336,6 +336,12 @@ export default function AdminTariffs() {
             </button>
           )}
           <button
+            onClick={() => navigate('/admin/tariff-comparison')}
+            className="rounded-lg border border-dark-700 bg-dark-800 px-4 py-2 text-sm text-dark-100 transition-colors hover:border-dark-600"
+          >
+            {t('admin.nav.tariffComparison')}
+          </button>
+          <button
             onClick={() => navigate('/admin/tariffs/create')}
             className="flex items-center justify-center gap-2 rounded-lg bg-accent-500 px-4 py-2 text-on-accent transition-colors hover:bg-accent-600"
           >

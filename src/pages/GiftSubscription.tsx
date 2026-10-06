@@ -6,6 +6,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { giftApi } from '../api/gift';
+import { TariffComparisonTable } from '../components/tariffs/TariffComparisonTable';
 import {
   canUseTelegramScanner,
   loadHtml5Qrcode,
@@ -570,6 +571,7 @@ function BuyTabContent({
       {/* Tariff selection */}
       {showTariffCards && (
         <div>
+          <TariffComparisonTable tariffIds={config.tariffs.map((tariff) => tariff.id)} />
           <h2 className="mb-3 text-xs font-semibold uppercase tracking-wider text-dark-400">
             {t('gift.selectTariff')}
           </h2>

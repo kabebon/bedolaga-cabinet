@@ -190,6 +190,12 @@ const sections: AdminSection[] = [
     items: [
       { name: 'admin.nav.tariffs', icon: 'tag', to: '/admin/tariffs', permission: 'tariffs:read' },
       {
+        name: 'admin.nav.tariffComparison',
+        icon: 'list-checks',
+        to: '/admin/tariff-comparison',
+        permission: 'tariffs:read',
+      },
+      {
         name: 'admin.nav.promocodes',
         icon: 'gift',
         to: '/admin/promocodes',

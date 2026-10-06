@@ -380,6 +380,7 @@
   },
   "subscription": {
     "title": "Subscription",
+    "comparisonTitle": "Compare plans",
     "currentPlan": "Current Plan",
     "status": "Status",
     "active": "Active",
@@ -1472,6 +1473,7 @@
       "apps": "Apps",
       "wheel": "Wheel",
       "tariffs": "Tariffs",
+      "tariffComparison": "Compare plans",
       "servers": "Squads",
       "banSystem": "Ban Monitoring",
       "broadcasts": "Broadcasts",
@@ -3789,6 +3791,29 @@
         "normal": "Normal",
         "high": "High",
         "urgent": "Urgent"
+      }
+    },
+    "tariffComparison": {
+      "title": "Plan comparison",
+      "subtitle": "Pluses and minuses shown while choosing a plan",
+      "enabled": "Show comparison",
+      "enabledHint": "The table on the plan picker and the button in the bot",
+      "showAuto": "Traffic, devices, servers and price",
+      "showAutoHint": "These rows come from the plans themselves and stay in sync",
+      "addRow": "Add row",
+      "rowLabel": "Row name, for example “Whitelist”",
+      "otherLanguages": "Names in other languages",
+      "inactive": "hidden",
+      "noTariffs": "At least two plans are needed to compare them",
+      "saved": "Comparison saved",
+      "saveError": "Could not save the comparison",
+      "textPlaceholder": "Custom text",
+      "moveUp": "Up",
+      "moveDown": "Down",
+      "kinds": {
+        "yes": "+",
+        "no": "−",
+        "text": "Text"
       }
     },
     "tariffs": {

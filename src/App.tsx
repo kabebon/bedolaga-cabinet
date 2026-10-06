@@ -96,6 +96,7 @@ const AdminGraceAccess = lazyWithRetry(() => import('./pages/AdminGraceAccess'))
 const AdminApps = lazyWithRetry(() => import('./pages/AdminApps'));
 const AdminWheel = lazyWithRetry(() => import('./pages/AdminWheel'));
 const AdminTariffs = lazyWithRetry(() => import('./pages/AdminTariffs'));
+const AdminTariffComparison = lazyWithRetry(() => import('./pages/AdminTariffComparison'));
 const AdminTariffCreate = lazyWithRetry(() => import('./pages/AdminTariffCreate'));
 const AdminServers = lazyWithRetry(() => import('./pages/AdminServers'));
 const AdminServerEdit = lazyWithRetry(() => import('./pages/AdminServerEdit'));
@@ -741,6 +742,16 @@ function App() {
             <PermissionRoute permission="tariffs:read">
               <LazyPage>
                 <AdminTariffs />
+              </LazyPage>
+            </PermissionRoute>
+          }
+        />
+        <Route
+          path="/admin/tariff-comparison"
+          element={
+            <PermissionRoute permission="tariffs:read">
+              <LazyPage>
+                <AdminTariffComparison />
               </LazyPage>
             </PermissionRoute>
           }
